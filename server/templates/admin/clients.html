@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Управление клиентами</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Добавить нового клиента</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label>Имя клиента:</label>
+                <input type="text" name="client_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Пароль:</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Описание (опционально):</label>
+                <input type="text" name="description" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить клиента</button>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Зарегистрированные клиенты</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Описание</th>
+                    <th>Добавлен</th>
+                    <th>Кем</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                <tr>
+                    <td>{{ client[0] }}</td>
+                    <td>{{ client[1] }}</td>
+                    <td>{{ client[2] }}</td>
+                    <td>{{ client[4] }}</td>
+                    <td>{{ client[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

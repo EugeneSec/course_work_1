@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Управление пользователями</h1>
+
+<h2>Добавить пользователя</h2>
+<form method="POST" action="{{ url_for('add_user') }}">
+    <input type="text" name="username" placeholder="Логин" required>
+    <input type="password" name="password" placeholder="Пароль" required>
+    <select name="role">
+        {% for role, level in roles.items() %}
+        <option value="{{ role }}">{{ role }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Добавить</button>
+</form>
+
+<h2>Список пользователей</h2>
+<table class="table">
+    <!-- Список пользователей -->
+</table>
+{% endblock %}
