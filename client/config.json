@@ -1,0 +1,10 @@
+{
+    "server_ip": "127.0.0.1",
+    "server_port": 8443,
+    "username": "client1",
+    "password": "12345678",
+    "scan_interval": 60,
+    "monitored_paths": [
+        "D:/\u0443\u0447\u0435\u0431\u0430 - \u0445\u043b\u0430\u043c/\u043a\u0443\u0440\u0441\u0430\u0447/8try"
+    ]
+}
