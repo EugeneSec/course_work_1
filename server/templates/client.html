@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client {{ client_id }} - File Monitor</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Client {{ client_id }}</h1>
+
+    <h2>Files</h2>
+    <table>
+        <tr>
+            <th>Path</th>
+            <th>Size</th>
+            <th>Created</th>
+            <th>Modified</th>
+            <th>Hash</th>
+        </tr>
+        {% for file in files %}
+        <tr>
+            <td>{{ file[0] }}</td>
+            <td>{{ file[1] }}</td>
+            <td>{{ file[2] }}</td>
+            <td>{{ file[3] }}</td>
+            <td>{{ file[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Changes</h2>
+    <table>
+        <tr>
+            <th>Path</th>
+            <th>Change Type</th>
+            <th>Detected At</th>
+        </tr>
+        {% for change in changes %}
+        <tr>
+            <td>{{ change[0] }}</td>
+            <td>{{ change[1] }}</td>
+            <td>{{ change[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Logs</h2>
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Timestamp</th>
+            <th>Details</th>
+        </tr>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log[0] }}</td>
+            <td>{{ log[1] }}</td>
+            <td>{{ log[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
